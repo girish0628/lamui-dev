@@ -47,6 +47,38 @@ const overlays = {
 };
 
 const layerControl = L.control.layers(baseLayers, overlays).addTo(map);
+
+L.geoJson(land_parcels, {
+  style: function (feature) {
+    // return { color: "green" };
+    return { color: "#999", weight: 2, fillColor: "#00ad79", fillOpacity: 0.6 };
+  },
+  onEachFeature: function (feature, layer) {
+    // layer.bindLabel(feature.properties.Full_Name, { noHide: true });
+    layer.bindTooltip(feature.properties.Short_Name, {
+      permanent: true,
+      direction: "center",
+      className: "countryLabel",
+    });
+  },
+}).addTo(map);
+L.geoJson(request_data, {
+  style: function (feature) {
+    return { color: feature.properties.color };
+  },
+  // onEachFeature: function (feature, layer) {
+  //   layer.bindPopup(feature.properties.description);
+  // },
+}).addTo(map);
+L.geoJson(proposals, {
+  style: function (feature) {
+    return { color: feature.properties.color };
+  },
+  // onEachFeature: function (feature, layer) {
+  //   layer.bindPopup(feature.properties.description);
+  // },
+}).addTo(map);
+
 const crownHill = L.marker([39.75, -105.09]).bindPopup(
   "This is Crown Hill Park."
 );

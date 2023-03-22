@@ -7,7 +7,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../../assets/img/favicon.png">
   <title>
-     || LAMS
+    Adani Group || LAMS
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -22,7 +22,8 @@
   <link id="pagestyle" href="../../assets/css/material-dashboard.css?v=3.0.0" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
-
+  <script src="../../data/request.js"></script>
+  <script src="../../data/proposals.js"></script>
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -38,7 +39,7 @@
     <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white" href="../pages/dashboard.html">
+          <a class="nav-link text-white" href="/pages/ABU-SPOC/dashboard.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
@@ -78,7 +79,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/notifications.html">
+          <a class="nav-link text-white " href="#">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">notifications</i>
             </div>
@@ -248,6 +249,7 @@
             <div id="map" class="card-body">
             </div>
             <script src="../../app.js"></script>
+
           </div>
         </div>
       </div>
@@ -1040,7 +1042,7 @@
               </div>
             </div>
             <div class="d-flex align-items-center text-dark text-sm font-weight-bold">
-              22.7489,78.2566
+              22.9547, 72.1542
             </div>
           </li>
         </ul>
@@ -1297,7 +1299,7 @@
               </div>
             </div>
             <div class="d-flex align-items-center text-dark text-sm font-weight-bold">
-              22.7489,78.2566
+              22.9547, 72.1542
             </div>
           </li>
         </ul>
@@ -1629,5 +1631,12 @@
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../../assets/js/material-dashboard.js?v=3.0.0"></script>
 </body>
-
+<script type="">
+  document.getElementsByClassName('drawer-request-button')[0].addEventListener('click', function(e) {
+    map.flyTo(L.latLng( 22.954762335526013, 72.15424250214248));
+  })
+  document.getElementsByClassName('fixed-plugin-button')[0].addEventListener('click', function(e) {
+    map.flyTo(L.latLng( 22.402255884905415, 72.239361115845085));
+  })
+</script>
 </html>

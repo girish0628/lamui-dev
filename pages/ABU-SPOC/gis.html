@@ -22,7 +22,22 @@
   <link id="pagestyle" href="../../assets/css/material-dashboard.css?v=3.0.0" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin=""/>
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
-
+  <script src="../../data/request.js"></script>
+  <script src="../../data/land_parcel.js"></script>
+  <script src="../../data/proposals.js"></script>
+  <style>
+  .countryLabel{
+    background: rgb(116 83 83 / 0%);
+    border: 0;
+    border-radius: 0px;
+    box-shadow: 0 0px 0px;
+    margin-top: -27px;
+    color: #9c27b0;
+    font-size: 10px;
+    font-style: oblique;
+    font-weight: bold;
+  }
+</style>
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
@@ -38,23 +53,23 @@
     <div class="collapse navbar-collapse  w-auto  max-height-vh-100" id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white" href="../pages/dashboard.html">
+          <a class="nav-link text-white" href="/pages/ABU-SPOC/dashboard.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
             <span class="nav-link-text ms-1">Dashboard</span>
           </a>
         </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link text-white" href="/pages/LE-SPOC/new-request.html">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/pages/ABU-SPOC/new-request.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
             <span class="nav-link-text ms-1">New Request</span>
           </a>
-        </li> -->
+        </li>
         <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-primary" href="/pages/LE-SPOC/existing-requests.html">
+          <a class="nav-link text-white" href="/pages/ABU-SPOC/existing-requests.html">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">receipt_long</i>
             </div>
@@ -70,7 +85,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="#">
+          <a class="nav-link text-white active bg-gradient-primary" href="#">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">view_in_ar</i>
             </div>
@@ -78,23 +93,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="/pages/LE-SPOC/previous-proposals.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">receipt_long</i>
-            </div>
-            <span class="nav-link-text ms-1">Previous Proposals</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white" href="/pages/LE-SPOC/aggregator-registration.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">table_view</i>
-            </div>
-            <span class="nav-link-text ms-1">Aggregator Registration</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/notifications.html">
+          <a class="nav-link text-white " href="#">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">notifications</i>
             </div>
@@ -145,9 +144,9 @@
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm">
-              <a href="javascript:;" style="color: white">Existing Proposals</a>
+              <a href="javascript:;" style="color: white">GIS</a>
             </li>
-            <li class="breadcrumb-item text-sm" aria-current="page">L &E - SPOC</li>
+            <li class="breadcrumb-item text-sm" aria-current="page">ABU-SPOC</li>
           </ol>
           <!-- <h6 class="font-weight-bolder mb-0">Tables</h6> -->
         </nav>
@@ -264,6 +263,7 @@
             <div id="map" class="card-body">
             </div>
             <script src="../../app.js"></script>
+
           </div>
         </div>
       </div>
@@ -367,8 +367,6 @@
                       <i class="material-icons text-sm me-2">ads_click</i>View Request</a>
                     <a class="drawer-bottom-proposal-button btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
                       <i class="material-icons text-sm me-2">ads_click</i>View Proposals</a>
-                    <a class="add-proposal-button btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
-                      <i class="material-icons text-sm me-2">ads_click</i>Add Proposals</a>
                   </div>
                 </td>
               </tr>
@@ -398,12 +396,8 @@
                 </td>
                 <td>
                   <div class="ms-auto text-center">
-                    <a class="drawer-request-button btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
+                    <a class="btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
                       <i class="material-icons text-sm me-2">ads_click</i>View Request</a>
-                    <a class="drawer-bottom-proposal-button btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
-                      <i class="material-icons text-sm me-2">ads_click</i>View Proposals</a>
-                    <a class="add-proposal-button btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
-                      <i class="material-icons text-sm me-2">ads_click</i>Add Proposals</a>
                   </div>
                 </td>
               </tr>
@@ -433,12 +427,8 @@
                 </td>
                 <td>
                   <div class="ms-auto text-center">
-                    <a class="drawer-request-button btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
+                    <a class="btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
                       <i class="material-icons text-sm me-2">ads_click</i>View Request</a>
-                    <a class="drawer-bottom-proposal-button btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
-                      <i class="material-icons text-sm me-2">ads_click</i>View Proposals</a>
-                    <a class="add-proposal-button btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
-                      <i class="material-icons text-sm me-2">ads_click</i>Add Proposals</a>
                   </div>
                 </td>
               </tr>
@@ -472,10 +462,8 @@
                 </td>
                 <td>
                   <div class="ms-auto text-center">
-                    <a class="drawer-request-button btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
+                    <a class="btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
                       <i class="material-icons text-sm me-2">ads_click</i>View Request</a>
-                    <a class="drawer-bottom-proposal-button btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
-                      <i class="material-icons text-sm me-2">ads_click</i>View Proposals</a>
                   </div>
                 </td>
               </tr>
@@ -509,10 +497,10 @@
                 </td>
                 <td>
                   <div class="ms-auto text-center">
-                    <a class="drawer-request-button btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
+                    <a class="btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
                       <i class="material-icons text-sm me-2">ads_click</i>View Request</a>
-                    <a class="drawer-bottom-proposal-button btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
-                      <i class="material-icons text-sm me-2">ads_click</i>View Proposals</a>
+                    <a class="btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
+                      <i class="material-icons text-sm me-2">ads_click</i>End Request</a>
                   </div>
                 </td>
               </tr>
@@ -649,8 +637,8 @@
                   <div class="ms-auto text-center">
                     <a class="proposal-detail-init-button btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
                       <i class="material-icons text-sm me-2">ads_click</i>View</a>
-                    <a class="drawer-eng-button btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
-                      <i class="material-icons text-sm me-2">ads_click</i>EngReport</a>
+                      <a class="drawer-eng-button btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
+                        <i class="material-icons text-sm me-2">ads_click</i>EngReport</a>
                   </div>
                 </td>
               </tr>
@@ -680,8 +668,10 @@
                 </td>
                 <td>
                   <div class="ms-auto text-center">
-                    <a class="proposal-detail-accepted-button btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
+                    <a class="btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
                       <i class="material-icons text-sm me-2">ads_click</i>View</a>
+                      <a class="drawer-eng-button btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
+                        <i class="material-icons text-sm me-2">ads_click</i>EngReport</a>
                   </div>
                 </td>
               </tr>
@@ -752,6 +742,10 @@
                   <div class="ms-auto text-center">
                     <a class="btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
                       <i class="material-icons text-sm me-2">ads_click</i>View</a>
+                      <a class="drawer-eng-button btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
+                        <i class="material-icons text-sm me-2">ads_click</i>EngReport</a>
+                      <a class="drawer-eng-button btn btn-link text-success text-gradient px-3 mb-0" href="javascript:;">
+                        <i class="material-icons text-sm me-2">ads_click</i>GIS DATA</a>
                   </div>
                 </td>
               </tr>
@@ -1062,7 +1056,7 @@
               </div>
             </div>
             <div class="d-flex align-items-center text-dark text-sm font-weight-bold">
-              22.7489,78.2566
+              22.9547, 72.1542
             </div>
           </li>
         </ul>
@@ -1174,272 +1168,44 @@
             </div>
           </li>
         </ul>
-        <!-- <div class="w-100 text-center p-1"
-            style="box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.16);border: brown;border-style: dotted;">
-          <h6 style="color: #2064a8;text-transform: uppercase;font-weight: bolder;">ASSIGN TO L& E - DH</h6>
-          <div class="input-group input-group-outline my-3">
-            <label class="form-label">Assignment User Email</label>
-            <input type="text" class="form-control">
-          </div>
-          <div class="input-group input-group-outline mb-3">
-            <label class="form-label">Assignment User Employee ID</label>
-            <input type="text" class="form-control">
-          </div>
-          <div class="input-group input-group-outline mb-3">
-            <label class="form-label">Assignment User Contact</label>
-            <input type="text" class="form-control">
-          </div>
-          <div class="text-center">
-            <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">
-              ASSIGN
-            </button>
-          </div>
-        </div> -->
-
+        <div class="w-100 text-center p-1"
+        style="box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.16);border: brown;border-style: dotted;">
+      <h6 style="color: #2064a8;text-transform: uppercase;font-weight: bolder;">Assign to ABU-Eng</h6>
+      <div class="input-group input-group-outline my-3">
+        <label class="form-label">Assignment User Email</label>
+        <input type="text" class="form-control">
+      </div>
+      <div class="input-group input-group-outline mb-3">
+        <label class="form-label">Assignment User Employee ID</label>
+        <input type="text" class="form-control">
+      </div>
+      <div class="input-group input-group-outline mb-3">
+        <label class="form-label">Assignment User Contact</label>
+        <input type="text" class="form-control">
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">
+          ASSIGN
+        </button>
       </div>
     </div>
-</div>
-
-<div class="proposal-detail-accepted">
-  <div class="card h-100 mb-4">
-    <div class="card-header pb-1 px-3" style="background: #03a9f4; color: white;">
-      <div class="row">
-        <div class="col-md-6">
-          <h6 class="mb-0" style="color: white">Proposal Details</h6>
-        </div>
-        <div class="col-md-6 d-flex justify-content-start justify-content-md-end align-items-center float-end mt-2">
-          <button class="btn btn-link text-dark p-0 proposal-detail-accepted-close-button">
-            <i class="material-icons" style="color: #f70426;font-size: 25px;font-weight: bolder;">clear</i>
-          </button>
-        </div>
+    <h6 style="color: #cb4790;text-transform: uppercase;font-weight: bolder;text-align: center;">OR</h6>
+    <div class="w-100 text-center p-1"
+        style="box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.16);border: brown;border-style: dotted;">
+      <h6 style="color: #2064a8;text-transform: uppercase;font-weight: bolder;">Reject</h6>
+      <div class="input-group input-group-outline my-3">
+        <label class="form-label" style="margin-top: -30px;">Comment*</label>
+        <!-- <input type="textbox" class="form-control"> -->
+        <textarea class="form-control" rows="4"></textarea>
+      </div>
+      <div class="text-center">
+        <button type="submit" class="btn bg-gradient-danger w-100 my-4 mb-2">
+          REJECT
+        </button>
       </div>
     </div>
-    <div class="card-body pt-4 p-3 overflow-auto">
-      <h6 class="text-uppercase text-body text-xs font-weight-bolder mb-3">BUSINESS</h6>
-      <ul class="list-group">
-        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-          <div class="d-flex align-items-center">
-            <button class="btn btn-icon-only btn-rounded btn-outline-danger mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
-              <i class="material-icons text-lg">expand_more</i>
-            </button>
-            <div class="d-flex flex-column">
-              <h6 class="mb-1 text-dark text-sm">Business Name</h6>
-            </div>
-          </div>
-          <div class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold">
-            Electric & Hydro Pvt. Ltd.
-          </div>
-        </li>
-        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-          <div class="d-flex align-items-center">
-            <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center"><i class="material-icons text-lg">expand_less</i></button>
-            <div class="d-flex flex-column">
-              <h6 class="mb-1 text-dark text-sm">Project Type</h6>
-            </div>
-          </div>
-          <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-            Land & Record
-          </div>
-        </li>
-      </ul>
-      <h6 class="text-uppercase text-body text-xs font-weight-bolder my-3">LOCATION</h6>
-      <ul class="list-group">
-        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-          <div class="d-flex align-items-center">
-            <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
-              <i class="material-icons text-lg">gite</i>
-            </button>
-            <div class="d-flex flex-column">
-              <h6 class="mb-1 text-dark text-sm">State</h6>
-            </div>
-          </div>
-          <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-            Gujarat
-          </div>
-        </li>
-        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-          <div class="d-flex align-items-center">
-            <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
-              <i class="material-icons text-lg">garage_home</i>
-            </button>
-            <div class="d-flex flex-column">
-              <h6 class="mb-1 text-dark text-sm">District</h6>
-            </div>
-          </div>
-          <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-            Gandhinagar
-          </div>
-        </li>
-        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-          <div class="d-flex align-items-center">
-            <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
-              <i class="material-icons text-lg">apartment</i>
-            </button>
-            <div class="d-flex flex-column">
-              <h6 class="mb-1 text-dark text-sm">City</h6>
-            </div>
-          </div>
-          <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-            Ranchi
-          </div>
-        </li>
-        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-          <div class="d-flex align-items-center">
-            <button class="btn btn-icon-only btn-rounded btn-outline-dark mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
-            <i class="material-icons text-lg">holiday_village</i></button>
-            <div class="d-flex flex-column">
-              <h6 class="mb-1 text-dark text-sm">Village</h6>
-            </div>
-          </div>
-          <div class="d-flex align-items-center text-dark text-sm font-weight-bold">
-            Bhopal
-          </div>
-        </li>
-        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-          <div class="d-flex align-items-center">
-            <button class="btn btn-icon-only btn-rounded btn-outline-dark mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
-              <i class="material-icons text-lg">location_on</i>
-            </button>
-            <div class="d-flex flex-column">
-              <h6 class="mb-1 text-dark text-sm">Lat/Long</h6>
-            </div>
-          </div>
-          <div class="d-flex align-items-center text-dark text-sm font-weight-bold">
-            22.7489,78.2566
-          </div>
-        </li>
-      </ul>
-
-      <h6 class="text-uppercase text-body text-xs font-weight-bolder mb-3">LAND DETAILS</h6>
-      <ul class="list-group">
-        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-          <div class="d-flex align-items-center">
-            <button class="btn btn-icon-only btn-rounded btn-outline-danger mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
-              <i class="material-icons text-lg">picture_as_pdf</i>
-            </button>
-            <div class="d-flex flex-column">
-              <h6 class="mb-1 text-dark text-sm">Location DOC</h6>
-            </div>
-          </div>
-          <div class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold">
-            PDF
-          </div>
-        </li>
-        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-          <div class="d-flex align-items-center">
-            <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
-              <i class="material-icons text-lg">area_chart</i>
-            </button>
-            <div class="d-flex flex-column">
-              <h6 class="mb-1 text-dark text-sm">Area (in Acr)</h6>
-            </div>
-          </div>
-          <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-            50,000
-          </div>
-        </li>
-        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-          <div class="d-flex align-items-center">
-            <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
-              <i class="material-icons text-lg">shield_moon</i>
-            </button>
-            <div class="d-flex flex-column">
-              <h6 class="mb-1 text-dark text-sm">Type Of Land</h6>
-            </div>
-          </div>
-          <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-            Private
-          </div>
-        </li>
-        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-          <div class="d-flex align-items-center">
-            <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
-              <i class="material-icons text-lg">currency_rupee</i>
-            </button>
-            <div class="d-flex flex-column">
-              <h6 class="mb-1 text-dark text-sm">Budget(in Cr)</h6>
-            </div>
-          </div>
-          <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-            Private
-          </div>
-        </li>
-        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-          <div class="d-flex align-items-center">
-            <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
-              <i class="material-icons text-lg">new_releases</i>
-            </button>
-            <div class="d-flex flex-column">
-              <h6 class="mb-1 text-dark text-sm">Lease/Purchase</h6>
-            </div>
-          </div>
-          <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-            Purchase
-          </div>
-        </li>
-        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-          <div class="d-flex align-items-center">
-            <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
-              <i class="material-icons text-lg">person</i>
-            </button>
-            <div class="d-flex flex-column">
-              <h6 class="mb-1 text-dark text-sm">Proposed By</h6>
-            </div>
-          </div>
-          <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-            Ramesh Kumar Singh
-          </div>
-        </li>
-        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-          <div class="d-flex align-items-center">
-            <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
-              <i class="material-icons text-lg">engineering</i>
-            </button>
-            <div class="d-flex flex-column">
-              <h6 class="mb-1 text-dark text-sm">Approved By</h6>
-            </div>
-          </div>
-          <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-            Suresh Kumar Singh
-          </div>
-        </li>
-        <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-          <div class="d-flex align-items-center">
-            <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
-              <i class="material-icons text-lg">request_quote</i>
-            </button>
-            <div class="d-flex flex-column">
-              <h6 class="mb-1 text-dark text-sm">Specific Request</h6>
-            </div>
-          </div>
-          <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-            Special Request
-          </div>
-        </li>
-      </ul>
-      <!-- <div class="w-100 text-center p-1"
-          style="box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.16);border: brown;border-style: dotted;">
-        <h6 style="color: #2064a8;text-transform: uppercase;font-weight: bolder;">ASSIGN TO GIS TEAM</h6>
-        <div class="input-group input-group-outline my-3">
-          <label class="form-label">Assignment User Email</label>
-          <input type="text" class="form-control">
-        </div>
-        <div class="input-group input-group-outline mb-3">
-          <label class="form-label">Assignment User Employee ID</label>
-          <input type="text" class="form-control">
-        </div>
-        <div class="input-group input-group-outline mb-3">
-          <label class="form-label">Assignment User Contact</label>
-          <input type="text" class="form-control">
-        </div>
-        <div class="text-center">
-          <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">
-            ASSIGN
-          </button>
-        </div>
-  </div> -->
+      </div>
     </div>
-  </div>
 </div>
 
   <div class="drawer-request">
@@ -1547,7 +1313,7 @@
               </div>
             </div>
             <div class="d-flex align-items-center text-dark text-sm font-weight-bold">
-              22.7489,78.2566
+              22.9547, 72.1542
             </div>
           </li>
         </ul>
@@ -1789,112 +1555,76 @@
             </div>
           </li>
         </ul>
-
+<!-- 
+        <ul class="list-group">
+          <li class="list-group-item border-0 d-flex p-4 mb-2 bg-gray-100 border-radius-lg">
+            <div class="d-flex flex-column">
+              <h6 class="mb-3 text-sm">Aggregator - Oliver Liam</h6>
+              <span class="mb-2 text-xs">Company Name: <span class="text-dark font-weight-bold ms-sm-2">Viking Burrito</span></span>
+              <span class="mb-2 text-xs">Email Address: <span class="text-dark ms-sm-2 font-weight-bold">oliver@burrito.com</span></span>
+              <span class="text-xs">VAT Number: <span class="text-dark ms-sm-2 font-weight-bold">FRB1235476</span></span>
+            </div>
+            <div class="ms-auto text-end">
+              <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">delete</i>Delete</a>
+              <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">edit</i>Edit</a>
+            </div>
+          </li>
+          <li class="list-group-item border-0 d-flex p-4 mb-2 mt-3 bg-gray-100 border-radius-lg">
+            <div class="d-flex flex-column">
+              <h6 class="mb-3 text-sm">L&E-DH - Lucas Harper</h6>
+              <span class="mb-2 text-xs">Company Name: <span class="text-dark font-weight-bold ms-sm-2">Stone Tech Zone</span></span>
+              <span class="mb-2 text-xs">Email Address: <span class="text-dark ms-sm-2 font-weight-bold">lucas@stone-tech.com</span></span>
+              <span class="text-xs">VAT Number: <span class="text-dark ms-sm-2 font-weight-bold">FRB1235476</span></span>
+            </div>
+            <div class="ms-auto text-end">
+              <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">delete</i>Delete</a>
+              <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">edit</i>Edit</a>
+            </div>
+          </li>
+          <li class="list-group-item border-0 d-flex p-4 mb-2 mt-3 bg-gray-100 border-radius-lg">
+            <div class="d-flex flex-column">
+              <h6 class="mb-3 text-sm">L&E-SPOC - Ethan James</h6>
+              <span class="mb-2 text-xs">Company Name: <span class="text-dark font-weight-bold ms-sm-2">Fiber Notion</span></span>
+              <span class="mb-2 text-xs">Email Address: <span class="text-dark ms-sm-2 font-weight-bold">ethan@fiber.com</span></span>
+              <span class="text-xs">VAT Number: <span class="text-dark ms-sm-2 font-weight-bold">FRB1235476</span></span>
+            </div>
+            <div class="ms-auto text-end">
+              <a class="btn btn-link text-danger text-gradient px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">delete</i>Delete</a>
+              <a class="btn btn-link text-dark px-3 mb-0" href="javascript:;"><i class="material-icons text-sm me-2">edit</i>Edit</a>
+            </div>
+          </li>
+        </ul> -->
+    <div class="w-100 text-center p-1"
+        style="box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.16);border: brown;border-style: dotted;">
+      <h6 style="color: #2064a8;text-transform: uppercase;font-weight: bolder;">ACCEPT</h6>
+      <div class="input-group input-group-outline my-3">
+        <label class="form-label" style="margin-top: -30px;">Comment*</label>
+        <!-- <input type="textbox" class="form-control"> -->
+        <textarea class="form-control" rows="4"></textarea>
       </div>
-    </div>
-</div>
-
-<div class="add-proposal">
-  <!-- <a class="add-proposal-button position-fixed px-3 py-2">
-    <i class="material-icons py-2">add</i>
-  </a> -->
-  <div class="card shadow-lg">
-    <div class="card-header pb-0 pt-0" style="background: #0073b1; color: white;">
-      <div class="float-start">
-        <h5 class="mt-1 mb-0" style="color: white">Add Proposal Details</h5>
-        <!-- <p>Fill all the details for new request.</p> -->
-      </div>
-      <div class="float-end mt-2">
-        <button class="btn btn-link text-dark p-0 add-proposal-close-button">
-          <i class="material-icons" style="color: #f70426;font-size: 25px;font-weight: bolder;">clear</i>
+      <div class="text-center">
+        <button type="submit" class="btn bg-gradient-success w-100 my-4 mb-2">
+          ACCEPT
         </button>
       </div>
-      <!-- End Toggle Button -->
     </div>
-    <!-- <hr class="horizontal dark my-3"> -->
-    <!-- <a class="btn btn-outline-dark w-100" href="">View documentation</a> -->
-    <hr class="horizontal dark my-1">
-    <div class="card-body pt-0 overflow-auto">
-      <form role="form" class="text-start" action="#">
-        <div class="input-group input-group-outline my-3">
-          <label class="form-label">Proposal ID</label>
-          <input type="text" class="form-control">
-        </div>
-        <div class="input-group input-group-outline my-3">
-          <label class="form-label">Proposal Name</label>
-          <input type="text" class="form-control">
-        </div>
-        <div class="input-group input-group-outline my-3">
-          <label class="form-label">Proposal By</label>
-          <input type="text" class="form-control">
-        </div>
-        <div class="input-group input-group-outline my-3">
-          <label class="form-label">Aggregator/ Landbank</label>
-          <input type="text" class="form-control">
-        </div>
-        <div class="input-group input-group-outline my-3">
-          <label class="form-label">Agreegator ID</label>
-          <input type="text" class="form-control">
-        </div>
+    <h6 style="color: #cb4790;text-transform: uppercase;font-weight: bolder;text-align: center;">OR</h6>
+    <div class="w-100 text-center p-1"
+        style="box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.16);border: brown;border-style: dotted;">
+      <h6 style="color: #2064a8;text-transform: uppercase;font-weight: bolder;">Reject</h6>
       <div class="input-group input-group-outline my-3">
-        <label class="form-label">Area Offered (Acre)</label>
-        <input type="text" class="form-control">
+        <label class="form-label" style="margin-top: -30px;">Comment*</label>
+        <!-- <input type="textbox" class="form-control"> -->
+        <textarea class="form-control" rows="4"></textarea>
       </div>
-      <div class="input-group input-group-outline my-3">
-          <label class="form-label">Type of Land</label>
-          <input type="text" class="form-control">
+      <div class="text-center">
+        <button type="submit" class="btn bg-gradient-danger w-100 my-4 mb-2">
+          REJECT
+        </button>
       </div>
-      <div class="input-group input-group-outline my-3">
-          <label class="form-label">Nos of Owners in Property</label>
-          <input type="text" class="form-control">
-      </div>
-        <div class="input-group input-group-outline my-3">
-          <label class="form-label">Location</label>
-          <input type="text" class="form-control">
-        </div>
-        <div class="input-group input-group-outline my-3">
-          <label class="form-label">Offered rate of land
-            (Per Acre)</label>
-          <input type="text" class="form-control">
-        </div>
-        <div class="input-group input-group-outline my-3">
-          <label class="form-label">Other Details</label>
-          <input type="text" class="form-control">
-        </div>
-        <!-- <div class="input-group input-group-outline mb-3">
-          <label class="form-label">Password</label>
-          <input type="password" class="form-control">
-        </div> -->
-        <!-- <div class="form-check form-switch d-flex align-items-center mb-3">
-          <input class="form-check-input" type="checkbox" id="rememberMe">
-          <label class="form-check-label mb-0 ms-2" for="rememberMe">Remember me</label>
-        </div> -->
-        <!-- <hr class="horizontal dark my-sm-4">
-        <div class="w-100 text-center p-4"
-            style="box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.16);border: brown;border-style: dotted;">
-          <h6 style="color: #2064a8;text-transform: uppercase;font-weight: bolder;">Assign to L&E-M</h6>
-          <div class="input-group input-group-outline my-3">
-            <label class="form-label">Assignment User Email</label>
-            <input type="text" class="form-control">
-          </div>
-          <div class="input-group input-group-outline mb-3">
-            <label class="form-label">Assignment User Employee ID</label>
-            <input type="text" class="form-control">
-          </div>
-          <div class="input-group input-group-outline mb-3">
-            <label class="form-label">Assignment User Contact</label>
-            <input type="text" class="form-control">
-          </div>
-        </div> -->
-        <div class="text-center">
-          <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2">
-            ADD PROPOSAL
-          </button>
-        </div>
-      </form>
-
     </div>
-  </div>
+      </div>
+    </div>
 </div>
   <!--   Core JS Files   -->
   <script src="../../assets/js/core/popper.min.js"></script>
@@ -1915,5 +1645,15 @@
   <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../../assets/js/material-dashboard.js?v=3.0.0"></script>
 </body>
-
+<script type="">
+  document.getElementsByClassName('drawer-request-button')[0].addEventListener('click', function(e) {
+    map.flyTo(L.latLng( 22.954762335526013, 72.15424250214248));
+  })
+  document.getElementsByClassName('fixed-plugin-button')[0].addEventListener('click', function(e) {
+    map.flyTo(L.latLng( 22.402255884905415, 72.239361115845085));
+  })
+  // map.flyTo(L.latLng(24.297687, 77.98565));
+  map.setView([24.297687, 77.98565], 5);
+  // L.map('map').setView([24.297687, 77.98565], 3);
+</script>
 </html>
