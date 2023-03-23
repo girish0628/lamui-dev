@@ -57,6 +57,10 @@
       var addProposal = document.querySelector(".add-proposal");
       var ps3 = new PerfectScrollbar(addProposal);
     }
+    if (document.getElementsByClassName("drawer-query")[0]) {
+      var drawerQuery = document.querySelector(".drawer-query");
+      var ps3 = new PerfectScrollbar(drawerQuery);
+    }
   }
 })();
 
@@ -262,6 +266,59 @@ if (document.querySelector(".fixed-plugin")) {
   document.querySelector("body").onclick = function (e) {
     // if (e.target != fixedPluginButton && e.target != fixedPluginButtonNav && e.target.closest('.fixed-plugin .card') != fixedPluginCard) {
     //   fixedPlugin.classList.remove('show');
+    // }
+  };
+
+  if (navbar) {
+    if (navbar.getAttribute("data-scroll") == "true" && buttonNavbarFixed) {
+      buttonNavbarFixed.setAttribute("checked", "true");
+    }
+  }
+}
+
+// Drawer Plugin
+
+if (document.querySelector(".drawer-query")) {
+  var drawerQuery = document.querySelector(".drawer-query");
+  var drawerQuery = document.querySelector(".drawer-query");
+  var drawerQueryButton = document.querySelector(".drawer-query-button");
+  var drawerQueryButtonNav = document.querySelector(".drawer-query-button-nav");
+  var drawerQueryCard = document.querySelector(".drawer-query .card");
+  var drawerQueryCloseButton = document.querySelectorAll(
+    ".drawer-query-close-button"
+  );
+  var navbar = document.getElementById("navbarBlur");
+  var buttonNavbarFixed = document.getElementById("navbarFixed");
+
+  if (drawerQueryButton) {
+    drawerQueryButton.onclick = function () {
+      if (!drawerQuery.classList.contains("show")) {
+        drawerQuery.classList.add("show");
+      } else {
+        drawerQuery.classList.remove("show");
+      }
+    };
+  }
+
+  if (drawerQueryButtonNav) {
+    drawerQueryButtonNav.onclick = function () {
+      if (!drawerQuery.classList.contains("show")) {
+        drawerQuery.classList.add("show");
+      } else {
+        drawerQuery.classList.remove("show");
+      }
+    };
+  }
+
+  drawerQueryCloseButton.forEach(function (el) {
+    el.onclick = function () {
+      drawerQuery.classList.remove("show");
+    };
+  });
+
+  document.querySelector("body").onclick = function (e) {
+    // if (e.target != drawerQueryButton && e.target != drawerQueryButtonNav && e.target.closest('.fixed-plugin .card') != drawerQueryCard) {
+    //   drawerQuery.classList.remove('show');
     // }
   };
 

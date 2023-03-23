@@ -301,7 +301,153 @@
       </footer>
     </div>
   </main>
-  <div class="drawer-bottom">
+
+  <div class="drawer-query">
+    <a class="drawer-query-button position-fixed px-3 py-2">
+      <i class="material-icons py-2">search</i>
+    </a>
+    <div class="card h-100 mb-4">
+      <div class="card-header pb-1 px-3" style="background: #03a9f4; color: white;">
+        <div class="row">
+          <div class="col-md-6">
+            <h6 class="mb-0" style="color: white">Search</h6>
+          </div>
+          <div class="col-md-6 d-flex justify-content-start justify-content-md-end align-items-center float-end mt-2">
+            <button class="btn btn-link text-dark p-0 drawer-query-close-button">
+              <i class="material-icons" style="color: #f70426;font-size: 25px;font-weight: bolder;">clear</i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card-body pt-4 p-3 overflow-auto">
+        <h6 class="text-uppercase text-body text-xs font-weight-bolder mb-3">BUSINESS</h6>
+        <ul class="list-group">
+          <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+            <div class="d-flex align-items-center">
+              <button class="btn btn-icon-only btn-rounded btn-outline-danger mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
+                <i class="material-icons text-lg">expand_more</i>
+              </button>
+              <div class="d-flex flex-column">
+                <h6 class="mb-1 text-dark text-sm">Full Name</h6>
+              </div>
+            </div>
+            <div id="s_full_name" class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold">
+            </div>
+          </li>
+          <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+            <div class="d-flex align-items-center">
+              <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center"><i class="material-icons text-lg">expand_less</i></button>
+              <div class="d-flex flex-column">
+                <h6 class="mb-1 text-dark text-sm">Business</h6>
+              </div>
+            </div>
+            <div id="s_business" class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
+
+            </div>
+          </li>
+        </ul>
+        <h6 class="text-uppercase text-body text-xs font-weight-bolder my-3">LOCATION</h6>
+        <ul class="list-group">
+          <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+            <div class="d-flex align-items-center">
+              <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
+                <i class="material-icons text-lg">gite</i>
+              </button>
+              <div class="d-flex flex-column">
+                <h6 class="mb-1 text-dark text-sm">State</h6>
+              </div>
+            </div>
+            <div id="s_state-name" class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
+
+            </div>
+          </li>
+          <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+            <div class="d-flex align-items-center">
+              <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
+                <i class="material-icons text-lg">garage_home</i>
+              </button>
+              <div class="d-flex flex-column">
+                <h6 class="mb-1 text-dark text-sm">District</h6>
+              </div>
+            </div>
+            <div id="s_district" class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
+            </div>
+          </li>
+          <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+            <div class="d-flex align-items-center">
+              <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
+                <i class="material-icons text-lg">apartment</i>
+              </button>
+              <div class="d-flex flex-column">
+                <h6 class="mb-1 text-dark text-sm">Village</h6>
+              </div>
+            </div>
+            <div id="s_village" class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
+              
+            </div>
+          </li>
+          <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+            <div class="d-flex align-items-center">
+              <button class="btn btn-icon-only btn-rounded btn-outline-dark mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
+              <i class="material-icons text-lg">holiday_village</i></button>
+              <div class="d-flex flex-column">
+                <h6 class="mb-1 text-dark text-sm">Company Code</h6>
+              </div>
+            </div>
+            <div id="s_company_co" class="d-flex align-items-center text-dark text-sm font-weight-bold">
+              
+            </div>
+          </li>
+          <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+            <div class="d-flex align-items-center">
+              <button class="btn btn-icon-only btn-rounded btn-outline-dark mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
+                <i class="material-icons text-lg">location_on</i>
+              </button>
+              <div class="d-flex flex-column">
+                <h6 class="mb-1 text-dark text-sm">Site_Name_</h6>
+              </div>
+            </div>
+            <div id="s_site_name_" class="d-flex align-items-center text-dark text-sm font-weight-bold">
+              
+            </div>
+          </li>
+        </ul>
+
+        <h6 class="text-uppercase text-body text-xs font-weight-bolder mb-3">LAND DETAILS</h6>
+        <ul class="list-group">
+          <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+            <div class="d-flex align-items-center">
+              <button class="btn btn-icon-only btn-rounded btn-outline-danger mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
+                <i class="material-icons text-lg">picture_as_pdf</i>
+              </button>
+              <div class="d-flex flex-column">
+                <h6 class="mb-1 text-dark text-sm">Survey_No</h6>
+              </div>
+            </div>
+            <div id="s_survey_no" class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold">
+            </div>
+          </li>
+          <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
+            <div class="d-flex align-items-center">
+              <button class="btn btn-icon-only btn-rounded btn-outline-danger mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
+                <i class="material-icons text-lg">picture_as_pdf</i>
+              </button>
+              <div class="d-flex flex-column">
+                <h6 class="mb-1 text-dark text-sm">Area In Acre</h6>
+              </div>
+            </div>
+            <div id="s_Area__In_A" class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold">
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+</div>
+
+
+
+
+  <div class="drawer-bottom" style="display: none;">
     <a class="drawer-bottom-button position-fixed px-3 py-2">
       <i class="material-icons py-2">add</i>
     </a>
@@ -779,10 +925,10 @@
                   <i class="material-icons text-lg">expand_more</i>
                 </button>
                 <div class="d-flex flex-column">
-                  <h6 class="mb-1 text-dark text-sm">Proposal ID</h6>
+                  <h6 class="mb-1 text-dark text-sm">Full Name</h6>
                 </div>
               </div>
-              <div class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold">
+              <div id="full_name" class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold">
                 ATGL-GJ-025648
               </div>
             </li>
@@ -790,11 +936,11 @@
               <div class="d-flex align-items-center">
                 <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center"><i class="material-icons text-lg">expand_less</i></button>
                 <div class="d-flex flex-column">
-                  <h6 class="mb-1 text-dark text-sm">Proposal Name</h6>
+                  <h6 class="mb-1 text-dark text-sm">Business</h6>
                 </div>
               </div>
-              <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-                ATGL-GJ-PATAN-PRO
+              <div id="business" class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
+
               </div>
             </li>
           </ul>
@@ -806,11 +952,11 @@
                   <i class="material-icons text-lg">gite</i>
                 </button>
                 <div class="d-flex flex-column">
-                  <h6 class="mb-1 text-dark text-sm">Proposal By</h6>
+                  <h6 class="mb-1 text-dark text-sm">State</h6>
                 </div>
               </div>
-              <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-                Shailendra Kumar
+              <div id="state-name" class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
+
               </div>
             </li>
             <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
@@ -819,11 +965,10 @@
                   <i class="material-icons text-lg">garage_home</i>
                 </button>
                 <div class="d-flex flex-column">
-                  <h6 class="mb-1 text-dark text-sm">Aggregator/ Landbank</h6>
+                  <h6 class="mb-1 text-dark text-sm">District</h6>
                 </div>
               </div>
-              <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-                Aggregator
+              <div id="district" class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
               </div>
             </li>
             <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
@@ -832,11 +977,11 @@
                   <i class="material-icons text-lg">apartment</i>
                 </button>
                 <div class="d-flex flex-column">
-                  <h6 class="mb-1 text-dark text-sm">Agreegator ID</h6>
+                  <h6 class="mb-1 text-dark text-sm">Village</h6>
                 </div>
               </div>
-              <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-                AGG-SHAOL-1287
+              <div id="village" class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
+                
               </div>
             </li>
             <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
@@ -844,11 +989,11 @@
                 <button class="btn btn-icon-only btn-rounded btn-outline-dark mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
                 <i class="material-icons text-lg">holiday_village</i></button>
                 <div class="d-flex flex-column">
-                  <h6 class="mb-1 text-dark text-sm">Area Offered (Acre)</h6>
+                  <h6 class="mb-1 text-dark text-sm">Company Code</h6>
                 </div>
               </div>
-              <div class="d-flex align-items-center text-dark text-sm font-weight-bold">
-                50,000
+              <div id="company_co" class="d-flex align-items-center text-dark text-sm font-weight-bold">
+                
               </div>
             </li>
             <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
@@ -857,11 +1002,11 @@
                   <i class="material-icons text-lg">location_on</i>
                 </button>
                 <div class="d-flex flex-column">
-                  <h6 class="mb-1 text-dark text-sm">Type of Land</h6>
+                  <h6 class="mb-1 text-dark text-sm">Site_Name_</h6>
                 </div>
               </div>
-              <div class="d-flex align-items-center text-dark text-sm font-weight-bold">
-                Private
+              <div id="site_name_" class="d-flex align-items-center text-dark text-sm font-weight-bold">
+                
               </div>
             </li>
           </ul>
@@ -874,77 +1019,22 @@
                   <i class="material-icons text-lg">picture_as_pdf</i>
                 </button>
                 <div class="d-flex flex-column">
-                  <h6 class="mb-1 text-dark text-sm">Nos of Owners in Property</h6>
+                  <h6 class="mb-1 text-dark text-sm">Survey_No</h6>
                 </div>
               </div>
-              <div class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold">
-                50
+              <div id="survey_no" class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold">
               </div>
             </li>
             <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
               <div class="d-flex align-items-center">
-                <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
-                  <i class="material-icons text-lg">area_chart</i>
+                <button class="btn btn-icon-only btn-rounded btn-outline-danger mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
+                  <i class="material-icons text-lg">picture_as_pdf</i>
                 </button>
                 <div class="d-flex flex-column">
-                  <h6 class="mb-1 text-dark text-sm">Area (in Acr)</h6>
+                  <h6 class="mb-1 text-dark text-sm">Area In Acre</h6>
                 </div>
               </div>
-              <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-                50,000
-              </div>
-            </li>
-            <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-              <div class="d-flex align-items-center">
-                <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
-                  <i class="material-icons text-lg">shield_moon</i>
-                </button>
-                <div class="d-flex flex-column">
-                  <h6 class="mb-1 text-dark text-sm">Type Of Land</h6>
-                </div>
-              </div>
-              <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-                Private
-              </div>
-            </li>
-            <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-              <div class="d-flex align-items-center">
-                <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
-                  <i class="material-icons text-lg">currency_rupee</i>
-                </button>
-                <div class="d-flex flex-column">
-                  <h6 class="mb-1 text-dark text-sm">Offered rate of land
-                    (Per Acre)</h6>
-                </div>
-              </div>
-              <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-                10,000
-              </div>
-            </li>
-            <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-              <div class="d-flex align-items-center">
-                <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
-                  <i class="material-icons text-lg">new_releases</i>
-                </button>
-                <div class="d-flex flex-column">
-                  <h6 class="mb-1 text-dark text-sm">Lease/Purchase</h6>
-                </div>
-              </div>
-              <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-                Purchase
-              </div>
-            </li>
-            <li class="list-group-item border-0 d-flex justify-content-between ps-0 mb-2 border-radius-lg">
-              <div class="d-flex align-items-center">
-                <button class="btn btn-icon-only btn-rounded btn-outline-success mb-0 me-3 p-3 btn-sm d-flex align-items-center justify-content-center">
-                  <i class="material-icons text-lg">person</i>
-                </button>
-                <div class="d-flex flex-column">
-                  <h6 class="mb-1 text-dark text-sm">Other Details</h6>
-                </div>
-              </div>
-              <div class="d-flex align-items-center text-success text-gradient text-sm font-weight-bold">
-               NA
+              <div id="Area__In_A" class="d-flex align-items-center text-danger text-gradient text-sm font-weight-bold">
               </div>
             </li>
           </ul>

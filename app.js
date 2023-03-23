@@ -53,12 +53,53 @@ L.geoJson(land_parcels, {
     // return { color: "green" };
     return { color: "#999", weight: 2, fillColor: "#00ad79", fillOpacity: 0.6 };
   },
+
   onEachFeature: function (feature, layer) {
     // layer.bindLabel(feature.properties.Full_Name, { noHide: true });
     layer.bindTooltip(feature.properties.Short_Name, {
       permanent: true,
       direction: "center",
-      className: "countryLabel",
+      className: "countryLabel fixed-plugin-button",
+    });
+    layer.on({
+      click: function (evt) {
+        console.log(evt);
+        var fixedPlugin = document.querySelector(".fixed-plugin");
+        if (!fixedPlugin.classList.contains("show")) {
+          fixedPlugin.classList.add("show");
+
+          // var t = temp1.target.feature.properties
+          // Full_Name
+          // Business
+          // State-name
+          // District
+          // Village
+          // Company_Co
+          // Site_Name_
+          var temp1 = evt;
+
+          document.getElementById("full_name").innerText =
+            temp1.target.feature.properties.Full_Name;
+          document.getElementById("business").innerText =
+            temp1.target.feature.properties.Business;
+          document.getElementById("state-name").innerText =
+            temp1.target.feature.properties.State;
+          document.getElementById("district").innerText =
+            temp1.target.feature.properties.District;
+          document.getElementById("village").innerText =
+            temp1.target.feature.properties.Village;
+          document.getElementById("company_co").innerText =
+            temp1.target.feature.properties.Company_Co;
+          document.getElementById("site_name_").innerText =
+            temp1.target.feature.properties.Site_Name_;
+          document.getElementById("survey_no").innerText =
+            temp1.target.feature.properties.Survey_No;
+          document.getElementById("Area__In_A").innerText =
+            temp1.target.feature.properties.Area__In_A;
+        } else {
+          fixedPlugin.classList.remove("show");
+        }
+      },
     });
   },
 }).addTo(map);
